@@ -1,8 +1,12 @@
-const dotenv = require("dotenv")
+// const dotenv = require("dotenv")
 
-if (process.env.ENVIRONMENT !== "production") {
-  dotenv.config()
-}
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+// if (process.env.ENVIRONMENT !== "production") {
+//   dotenv.config()
+// }
 
 module.exports = {
   siteMetadata: {
@@ -13,6 +17,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `@contentful/rich-text-react-renderer`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,13 +39,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-   {
-     resolve: `gatsby-source-contentful`,
-     options: {
-      spaceId: process.env.spaceId,
-      accessToken: process.env.accessToken,
-     },
-   },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -40,8 +40,13 @@ template {
   display: none;
 }
 a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: lighter;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 a:active,
 a:hover {
@@ -510,6 +515,11 @@ th {
 }
 li {
   margin-bottom: calc(1.45rem / 2);
+  list-style-type: none;
+}
+ul {
+  padding: 0;
+  margin: 0;
 }
 ol li {
   padding-left: 0;

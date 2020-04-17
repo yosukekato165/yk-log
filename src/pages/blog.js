@@ -46,7 +46,7 @@ const Blog = () => {
                 <Link to={`/blog/${edge.node.slug}/`}>{edge.node.title}</Link>
               </h2>
               <div className="meta">
-                <span>Posted on {edge.node.publishedDate}</span>
+                <span>公開日 {edge.node.publishedDate}</span>
               </div>
               {edge.node.featuredImage && (
                 <Img

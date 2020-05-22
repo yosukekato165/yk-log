@@ -4,6 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import style from "../components/blog-page/style.module.scss"
 
 export const query = graphql`
   query($slug: String!) {
@@ -27,7 +28,7 @@ const BlogPost = props => {
     <Layout>
       <SEO title={props.data.contentfulBlog.title} />
       <Link to="/blog/">Visit the Blog Page</Link>
-      <div className="content">
+      <div className={style.content}>
         <h1>{props.data.contentfulBlog.title}</h1>
         <span className="meta">
           Posted on {props.data.contentfulBlog.publishedDate}
@@ -42,6 +43,7 @@ const BlogPost = props => {
         )}
         {documentToReactComponents(props.data.contentfulBlog.body.json)}
       </div>
+      {/* <BlogPage/> */}
     </Layout>
   )
 }

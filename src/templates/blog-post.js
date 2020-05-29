@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import style from "../components/blog-page/style.module.scss"
 
 export const query = graphql`
-    query($slug: String!) {
+    query($slug: String) {
       contentfulBlog(slug: { eq: $slug }) {
         title
         publishedDate(formatString: "Do MMMM, YYYY")

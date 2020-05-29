@@ -1,0 +1,11 @@
+.content {
+    a {
+        text-decoration: underline;
+        &:link {
+            color: blue;
+        }
+        &:visited {
+            color: purple;
+        }
+    }
+} 

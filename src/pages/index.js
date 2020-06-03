@@ -7,7 +7,9 @@ import BlogList from "../components/blog-list"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <BlogList />
+
+    <BlogList/>
+    <Link to="/blog/">Go to Blog</Link>
   </Layout>
 )
 

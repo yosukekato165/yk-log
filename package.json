@@ -24,6 +24,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@soda/friendly-errors-webpack-plugin": "^1.7.1",
     "prettier": "^1.19.1"
   },
   "keywords": [

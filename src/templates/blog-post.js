@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
@@ -10,7 +10,7 @@ export const query = graphql`
     query($slug: String) {
       contentfulBlog(slug: { eq: $slug }) {
         title
-        publishedDate(formatString: "Do MMMM, YYYY")
+        publishedDate(formatString: "YYYY/MM/D")
         featuredImage {
           fluid(maxWidth: 750) {
             ...GatsbyContentfulFluid
@@ -27,20 +27,20 @@ const BlogPost = props => {
   return (
     <Layout>
       <SEO title={props.data.contentfulBlog.title} />
-      <Link to="/blog/">Visit the Blog Page</Link>
       <div className={style.content}>
         <h1>{props.data.contentfulBlog.title}</h1>
-        <span className="meta">
-          Posted on {props.data.contentfulBlog.publishedDate}
-        </span>
+        
 
         {props.data.contentfulBlog.featuredImage && (
           <Img
-            className="featured"
+            className={style.featured}
             fluid={props.data.contentfulBlog.featuredImage.fluid}
             alt={props.data.contentfulBlog.title}
           />
         )}
+        <span className={style.meta}>
+          {props.data.contentfulBlog.publishedDate}
+        </span>
         {documentToReactComponents(props.data.contentfulBlog.body.json)}
       </div>
       {/* <BlogPage/> */}

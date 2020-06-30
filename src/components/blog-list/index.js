@@ -15,7 +15,7 @@ const BlogList = () => {
                     title
                     id
                     slug
-                    publishedDate(formatString: "Do MMMM, YYYY")
+                    publishedDate(formatString: "YYYY/MM/D")
                     featuredImage {
                     fluid(maxWidth: 750) {
                         ...GatsbyContentfulFluid
@@ -54,7 +54,7 @@ const BlogList = () => {
                     {edge.node.excerpt.childMarkdownRemark.excerpt}
                 </p>
                 <div className={style.postDate}>
-                    <span>公開日 {edge.node.publishedDate}</span>
+                    <span> {edge.node.publishedDate}</span>
                 </div>
                 </Link>
                 </li>

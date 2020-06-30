@@ -7,21 +7,21 @@ import SEO from "../components/seo"
 import style from "../components/blog-page/style.module.scss"
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulBlog(slug: { eq: $slug }) {
-      title
-      publishedDate(formatString: "Do MMMM, YYYY")
-      featuredImage {
-        fluid(maxWidth: 750) {
-          ...GatsbyContentfulFluid
+    query($slug: String) {
+      contentfulBlog(slug: { eq: $slug }) {
+        title
+        publishedDate(formatString: "Do MMMM, YYYY")
+        featuredImage {
+          fluid(maxWidth: 750) {
+            ...GatsbyContentfulFluid
+          }
+        }
+        body {
+          json
         }
       }
-      body {
-        json
-      }
     }
-  }
-`
+    `
 
 const BlogPost = props => {
   return (
@@ -43,6 +43,7 @@ const BlogPost = props => {
         )}
         {documentToReactComponents(props.data.contentfulBlog.body.json)}
       </div>
+      {/* <BlogPage/> */}
     </Layout>
   )
 }
